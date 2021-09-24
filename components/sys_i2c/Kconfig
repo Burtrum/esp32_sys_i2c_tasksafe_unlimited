@@ -1,0 +1,32 @@
+menu "SYS_I2C Demo Configuration"
+
+    config SYS_I2C_ID_00_SCL_IO_NUM
+        int "SCL GPIO number for I2C Bus: SYS_I2C_ID_00"
+        range 0 50
+        default 3
+        help
+            SYS_I2C SCL clock GPIO setting.
+            Only valid for board 'bsp_id = BSP_0000_KCONFIG' in `app_main.c`.
+            Used in 'BSP_I2C_config[BSP_0000_KCONFIG]' table within bsp_config.c.
+
+            Range values are just a placeholder, not adjusted for specific ESP32. Validated in code.
+
+    config SYS_I2C_ID_00_SDA_IO_NUM
+        int "SDA GPIO number for I2C Bus: SYS_I2C_ID_00"
+        range 0 50
+        default 4
+        help
+            SYS_I2C SDA data GPIO setting.
+            Only valid for board 'bsp_id = BSP_0000_KCONFIG' in `app_main.c`.
+            Used in 'BSP_I2C_config[BSP_0000_KCONFIG]' table within bsp_config.c.
+
+            Range values are just a placeholder, not adjusted for specific ESP32. Validated in code.
+
+    config SYS_I2C_PULL_UP_ENABLE
+        bool "Enable internal pull-up resistors"
+        default y
+        help
+            Internal resistors allow testing empty I2C Buses with scope or LA probe - TESTING ONLY.
+            External resistors REQUIRED for proper I2C operation.
+
+endmenu
